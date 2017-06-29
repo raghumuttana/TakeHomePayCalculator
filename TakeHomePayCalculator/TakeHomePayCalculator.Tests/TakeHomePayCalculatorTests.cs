@@ -33,12 +33,7 @@ namespace TakeHomePayCalculator.Tests
         }
 
 
-        [TestCase(20, 10, "Ireland", 0)]
-        [TestCase(160, 6.25, "Ireland",0)]
-        [TestCase(176, 12, "Ireland",0)]
-        [TestCase(180, 60, "Ireland",0)]
-        [TestCase(200, 35, "Ireland",0)]
-        [TestCase(168, 50, "Ireland",0)]
+        [TestCase(20, 10, "Ireland", 128)]      
         public void ComputeTakeHomeForIreland(int hoursWorked, double hourlyRate, string location, double netAmount)
         {
             //arrange
@@ -50,36 +45,40 @@ namespace TakeHomePayCalculator.Tests
             Assert.That(payCheck.NetAmount, Is.EqualTo(netAmount));
         }
 
-       
-
-        [TestCase(20, 10, "Italy")]
-        [TestCase(160, 6.25, "Italy")]
-        [TestCase(176, 12, "Italy")]
-        [TestCase(180, 60, "Italy")]
-        [TestCase(200, 35, "Italy")]
-        [TestCase(168, 50, "Italy")]
-        public void ComputeTakeHomeForItaly()
+       [OneTimeTearDown]
+       public void TearDown()
         {
-            //arrange
-
-            //act
-
-            //assert
+            _grossPayService = null;
         }
 
-        [TestCase(20, 10, "Germany")]
-        [TestCase(160, 6.25, "Germany")]
-        [TestCase(176, 12, "Germany")]
-        [TestCase(180, 60, "Germany")]
-        [TestCase(200, 35, "Germany")]
-        [TestCase(168, 50, "Germany")]
-        public void ComputeTakeHomeForGermany()
-        {
-            //arrange
+        //[TestCase(20, 10, "Italy")]
+        //[TestCase(160, 6.25, "Italy")]
+        //[TestCase(176, 12, "Italy")]
+        //[TestCase(180, 60, "Italy")]
+        //[TestCase(200, 35, "Italy")]
+        //[TestCase(168, 50, "Italy")]
+        //public void ComputeTakeHomeForItaly()
+        //{
+        //    //arrange
 
-            //act
+        //    //act
 
-            //assert
-        }
+        //    //assert
+        //}
+
+        //[TestCase(20, 10, "Germany")]
+        //[TestCase(160, 6.25, "Germany")]
+        //[TestCase(176, 12, "Germany")]
+        //[TestCase(180, 60, "Germany")]
+        //[TestCase(200, 35, "Germany")]
+        //[TestCase(168, 50, "Germany")]
+        //public void ComputeTakeHomeForGermany()
+        //{
+        //    //arrange
+
+        //    //act
+
+        //    //assert
+        //}
     }
 }
